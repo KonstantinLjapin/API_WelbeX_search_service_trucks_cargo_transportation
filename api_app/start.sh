@@ -1,4 +1,6 @@
 #!/bin/bash
 # need chmod +
 sleep 10s;
-uvicorn api_app.main:app --host 0.0.0.0;
+cd api_app/
+python csv_upload.py;
+uvicorn main:app --host 0.0.0.0;
