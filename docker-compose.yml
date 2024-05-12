@@ -7,7 +7,7 @@ services:
       - ./.env
     stop_signal: SIGINT
     container_name: api_fast_api
-    command: bash -c "chmod +x api_app/start.sh; ./api_app/start.sh"
+    command: bash -c "sleep 10s; cd api_app/; python csv_upload.py; uvicorn main:app --host 0.0.0.0;"
     volumes:
       - ./dump/app:/usr/src/app
     ports:
