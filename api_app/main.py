@@ -1,14 +1,19 @@
-from typing import Union
-from fastapi import FastAPI
+from typing import Annotated
+from fastapi import FastAPI, Depends
+from config import Settings
+from functools import lru_cache
 
 app = FastAPI()
 
 
+@lru_cache
+def get_settings():
+    return Settings()
+
+
 @app.get("/")
-async def read_root():
-    return {"Hello": "World"}
+async def read_root(settings: Annotated[Settings, Depends(get_settings)]):
+
+    return {"Hello": settings.db_container_name}
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}

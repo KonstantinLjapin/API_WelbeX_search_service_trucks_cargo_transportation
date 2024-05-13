@@ -1,15 +1,17 @@
 from sqlalchemy import create_engine
-from sqlalchemy.engine import URL
+from api_app.config import Settings
+from functools import lru_cache
 
 
-"postgresql+asyncpg://{config.db.user}:{config.db.password}@{config.db.host}:{config.db.port}/{config.db.name}"
+"""@lru_cache
+def get_settings():
+    return Settings()
 
-url = URL.create(
-    drivername="postgresql",
-    username="coderpad",
-    host="db",
-    database="locator"
-)
 
-engine = create_engine(url)
+settings = get_settings()
 
+
+engine = create_engine(f"postgresql+asyncpg://{settings.postgres_user}:{settings.postgres_password}@"
+                       f"{settings.postgres_host}:{settings.postgres_port}/{settings.postgres_db}")"""
+
+print("ok")

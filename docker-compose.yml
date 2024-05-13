@@ -7,7 +7,8 @@ services:
       - ./.env
     stop_signal: SIGINT
     container_name: api_fast_api
-    command: bash -c "sleep 10s; cd api_app/; python csv_upload.py; uvicorn main:app --host 0.0.0.0;"
+    command: bash -c "sleep 10s; cd api_app/; python csv_upload.py;
+      python database/utils.py; uvicorn main:app --host 0.0.0.0;"
     volumes:
       - ./dump/app:/usr/src/app
     ports:
