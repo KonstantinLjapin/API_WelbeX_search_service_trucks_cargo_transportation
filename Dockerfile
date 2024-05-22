@@ -1,7 +1,7 @@
 FROM python:3.11-slim-buster
 LABEL authors="lyapin"
 
-WORKDIR /app
+WORKDIR /
 
 COPY requirements.txt .
 

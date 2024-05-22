@@ -6,7 +6,7 @@ venv/
 #all
 docker-compose.yml
 dump/
-test_start.sh
+start_test.sh
 Dockerfile
 .idea
 dump/
