@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy import create_engine, Engine
 from sqlalchemy import select
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+
 import asyncio
 
 
@@ -28,7 +29,7 @@ t1 = Table("t1", meta, Column("name", String(50), primary_key=True))
 
 
 async def async_main() -> None:
-    engine = create_async_engine(DATABASE_URL, echo=True)
+    engine = create_async_engine(DATABASE_URL, echo=False)
     async with engine.begin() as conn:
         await conn.run_sync(meta.drop_all)
         await conn.run_sync(meta.create_all)
@@ -38,7 +39,7 @@ async def async_main() -> None:
     async with engine.connect() as conn:
         # select a Result, which will be delivered with buffered
         # results
-        result = await conn.execute(select(t1).where(t1.c.name == "some name 1"))
+        result = await conn.execute(select(t1))
         print(result.fetchall())
     # for AsyncEngine created in function scope, close and
     # clean-up pooled connections
