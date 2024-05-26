@@ -7,7 +7,7 @@ services:
       - ./.env
     stop_signal: SIGINT
     container_name: api_fast_api
-    command: bash -c "sleep 10s; cd api_app; ls; chmod +x main.py; python3.11 main.py"
+    command: bash -c "sleep 10s; chmod +x api_app/main.py; python3.11 api_app/main.py"
     volumes:
       - ./dump/app:/usr/src/app
     ports:
@@ -21,15 +21,7 @@ services:
     command:
       - "postgres"
       - "-c"
-      - "log_destination=stderr"
-      - "-c"
-      - "logging_collector=on"
-      - "-c"
-      - "log_directory=/var/lib/postgresql/data/pg_log"
-      - "-c"
-      - "work_mem=16MB"
-      - "-c"
-      - "maintenance_work_mem=512MB"
+      - "log_statement=all"
     env_file:
       - ./.env
     volumes:

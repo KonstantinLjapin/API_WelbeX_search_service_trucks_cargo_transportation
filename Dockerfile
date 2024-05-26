@@ -9,3 +9,5 @@ RUN pip install --no-cache-dir --upgrade pip  \
     && pip install --no-cache-dir -r ./requirements.txt
 
 COPY . .
+
+ENV PYTHONPATH "${PYTHONPATH}:${APP_DIR}"
