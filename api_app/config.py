@@ -8,6 +8,7 @@ class SettingsDataBase(BaseSettings):
     postgres_port: str
     postgres_password: str
     db_container_name: str
+    echo_db: bool
 
 
 db_settings: SettingsDataBase = SettingsDataBase()

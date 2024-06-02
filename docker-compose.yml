@@ -7,7 +7,7 @@ services:
       - ./.env
     stop_signal: SIGINT
     container_name: api_fast_api
-    command: bash -c "sleep 10s; chmod +x api_app/main.py; python3.11 api_app/main.py"
+    command: bash -c "sleep 2s; chmod +x api_app/main.py; python3.11 api_app/main.py"
     volumes:
       - ./dump/app:/usr/src/app
     ports:
