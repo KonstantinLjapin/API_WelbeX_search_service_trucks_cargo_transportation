@@ -31,6 +31,21 @@ class A(Base):
     bs: Mapped[List[B]] = relationship()
 
 
+class Book(Base):
+    __tablename__ = "book"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(index=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
+
+
+class User(Base):
+    __tablename__ = "user"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    email: Mapped[str] = mapped_column(index=True)
+    password: Mapped[str] = mapped_column(index=True)
+    books: Mapped[List[Book]] = relationship()
+
+
 meta = MetaData()
 t1 = Table("t1", meta, Column("name", String(50), primary_key=True))
 
