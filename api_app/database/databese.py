@@ -1,5 +1,4 @@
 from api_app.config import db_settings
-from api_app.database.models import meta, t1, A, B, Base
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.ext.asyncio import AsyncEngine

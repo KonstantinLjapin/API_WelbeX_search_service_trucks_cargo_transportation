@@ -46,6 +46,10 @@ class User(Base):
     books: Mapped[List[Book]] = relationship()
 
 
-meta = MetaData()
-t1 = Table("t1", meta, Column("name", String(50), primary_key=True))
+class Car(Base):
+    __tablename__ = "user"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    email: Mapped[str] = mapped_column(index=True)
+    password: Mapped[str] = mapped_column(index=True)
+    books: Mapped[List[Book]] = relationship()
 
