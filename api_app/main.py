@@ -1,7 +1,6 @@
 import asyncio
-from api_app.database.CRUD import user_create
+from api_app.database.csv_handler import main
 
 
-"asyncio.run(async_main())"
-asyncio.run(user_create())
-print("start_app")
+in_file = "/api_app/uszips.csv"
+asyncio.run(main(in_file))

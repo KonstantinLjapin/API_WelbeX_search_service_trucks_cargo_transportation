@@ -1,11 +1,11 @@
-from api_app.database.models import Base, User
+from api_app.database.models import Base
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.ext.asyncio import AsyncEngine
 from sqlalchemy import select
 from api_app.database.databese import DatabaseHelper
 
-
+"""
 async def insert_user(async_session: async_sessionmaker[AsyncSession]) -> None:
     async with async_session() as session:
         async with session.begin():
@@ -44,3 +44,4 @@ async def user_create() -> None:
     # for AsyncEngine created in function scope, close and
     # clean-up pooled connections
     await engine.dispose()
+"""

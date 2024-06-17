@@ -9,5 +9,9 @@ dump/
 start_test.sh
 Dockerfile
 .idea
+.env.dist
+.git
+.gitignore
+
 dump/
 
